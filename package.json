@@ -4,7 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "test": "yarn test"
+  },
+  "devDependencies": {
+    "typescript": "^4.4.4"
   },
   "repository": {
     "type": "git",
