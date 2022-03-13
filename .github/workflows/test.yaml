@@ -1,4 +1,4 @@
-name: build-ts
+name: test
 on: [push]
 jobs:
   build-ts:
