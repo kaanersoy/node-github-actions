@@ -10,9 +10,6 @@ jobs:
         id: node-modules-cache
         uses: actions/cache@v2
         with:
-          path: prime-numbers
-          key: node-modules-cache
-        with:
           node-version: "14"
       - run: npm install
   build-ts:
