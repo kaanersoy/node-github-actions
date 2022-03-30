@@ -52,4 +52,6 @@ jobs:
           key: npm-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             npm-
-      - run: npm test
+      - run: npm test --coverage=true
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v1
