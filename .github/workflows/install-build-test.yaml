@@ -55,4 +55,11 @@ jobs:
           restore-keys: |
             npm-
       - run: npm test --coverage=true
+<<<<<<< HEAD
       - uses: codecov/codecov-action@v2
+=======
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v1
+        with:
+          token: ${{ secrets.CODECOV_SECRET }}
+>>>>>>> dbc6a7d (add secret for codecov)
