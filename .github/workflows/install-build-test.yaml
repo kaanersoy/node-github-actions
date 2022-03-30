@@ -16,7 +16,9 @@ jobs:
           key: npm-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             npm-
-      - run: npm install
+      - name: install-dependencies
+        if: steps.cache-primes.outputs.cache-hit != 'true'
+        run: npm install
 
   build-ts:
     needs: install-deps
