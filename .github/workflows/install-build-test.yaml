@@ -1,0 +1,33 @@
+name: install
+on: [push]
+jobs:
+  install-deps:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+      - name: Cache Primes
+        id: node-modules-cache
+        uses: actions/cache@v2
+        with:
+          path: prime-numbers
+          key: node-modules-cache
+        with:
+          node-version: "14"
+      - run: npm install
+  build-ts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "14"
+      - run: npm test
+  run-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "14"
+      - run: npm test
