@@ -55,4 +55,4 @@ jobs:
           restore-keys: |
             npm-
       - run: npm test
-      - run: "./node_modules/.bin/codecov --token=${{ secrets.CODECOV_TOKEN }}"
+      - uses: codecov/codecov-action@v2
