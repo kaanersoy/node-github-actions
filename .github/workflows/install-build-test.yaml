@@ -6,13 +6,15 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
-      - name: Cache Primes
-        id: node-modules-cache
-        uses: actions/cache@v2
         with:
           node-version: "14"
+      - name: Cache Primes
+        id: node-modules-cache
+      - uses: actions/cache@v2
       - run: npm install
+
   build-ts:
+    needs: install-deps
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -20,7 +22,9 @@ jobs:
         with:
           node-version: "14"
       - run: npm test
+
   run-tests:
+    needs: install-deps
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
